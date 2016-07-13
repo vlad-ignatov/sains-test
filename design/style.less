@@ -1,0 +1,177 @@
+@gap: 30px;
+
+h1, h2, h3, h4, h5, h6, ul, ol {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Droid Serif", serif;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+body {
+    font-size: 20px;
+    padding  : @gap;
+    margin   : 0;
+    box-sizing: border-box;
+
+    > header {
+        font-family: "Droid Serif", serif;
+        font-style: italic;
+        font-size: 26px;
+        font-weight: 400;
+        img {
+            vertical-align: middle;
+        }
+    }
+
+    > footer {
+        padding   : @gap/2;
+        margin    : @gap 0 -@gap;
+        border    : 1px solid #CCC;
+        border-bottom: 0;
+        background: #EEE;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.menu-link {
+    padding   : 0.5em 2em;
+    border    : 1px solid #CCC;
+    background: #EEE;
+    border-radius: 3px;
+    display   : block;
+    width     : 3em;
+    text-align: center;
+    margin    : @gap * 1.5 auto;
+}
+
+.visible-mobile {
+    display: none;
+}
+
+.hidden-mobile {
+    display: block;
+}
+
+nav {
+    background: #EEE;
+    border: 1px solid #CCC;
+    margin: @gap 0;
+    padding: 4px 8px;
+    box-sizing: border-box;
+    display: table;
+    width: 100%;
+
+    a {
+        padding: 4px 8px;
+        box-sizing: border-box;
+        display: table-cell;
+        text-align: center;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+
+article {
+    margin-right: 250px + @gap;
+
+    img {
+        width: 100%;
+    }
+}
+
+aside {
+    float: right;
+    width: 250px;
+}
+
+.social {
+    display: table;
+    width: 100%;
+    > a {
+        display: table-cell;
+        text-align: center;
+    }
+}
+
+@media( min-width: 769px ) {
+    .social {
+        position: absolute;
+        top: @gap;
+        right: @gap;
+        width: 12em;
+    }
+}
+@media( max-width: 768px ) {
+
+    .visible-mobile {
+        display: block;
+    }
+
+    .hidden-mobile {
+        display: none;
+    }
+
+    aside {
+        display: none;
+    }
+    article {
+        margin: 0;
+    }
+
+    nav {
+        display   : block;
+        position  : fixed;
+        top       : 0;
+        right     : 0;
+        left      : 0;
+        // height    : 0;
+        z-index   : 100;
+        margin    : 0;
+        padding   : 0;
+        border    : none;
+        overflow  : hidden;
+        opacity   : 0;
+        transform : translate3d(0, -100%, 0);
+        box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+
+        &:target {
+            transition: all ease-in-out 0.4s;
+            transform : translate3d(0, 0, 0);
+            opacity: 1;
+        }
+
+        a {
+            display: block;
+            padding: 0.5em 30px;
+            text-align: left;
+        }
+    }
+
+    html:focus nav {
+        // height : 0;
+        opacity: 0;
+        transform : translate3d(0, -100%, 0);
+    }
+
+    .content {
+        flex-direction: column-reverse;
+        flex-wrap: wrap-reverse;
+        display: flex;
+    }
+}

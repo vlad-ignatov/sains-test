@@ -1,0 +1,19 @@
+{
+  "name": "sains-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/nodemon/bin/nodemon.js --exec ./node_modules/less/bin/lessc -- --autoprefix=\"> 5%\" --clean-css ./design/style.less ./design/style.min.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "less": "^2.7.1"
+  },
+  "devDependencies": {
+    "less-plugin-autoprefix": "^1.5.1",
+    "less-plugin-clean-css": "^1.5.1"
+  }
+}
